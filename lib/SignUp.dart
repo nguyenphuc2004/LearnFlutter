@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -8,7 +9,6 @@ class SignUp extends StatelessWidget {
         body: Stack(
           children: [
             Positioned.fill(
-              bottom: 60,
               child: Image.asset(
                 'assets/images/pexels-rednguyen-12636958 1.png',
                 fit: BoxFit.cover,
@@ -28,18 +28,20 @@ class SignUp extends StatelessWidget {
               left: 31,
               child: Text(
                 'Chào buổi sáng',
-                style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
               ),
             ),
-            Positioned.fill(
-              top: 500,
+            Align(
+              alignment: Alignment.bottomCenter,
               child: Image.asset(
                 'assets/images/pexels-rednguyen-12636958 2.png',
-                fit: BoxFit.fill,
               ),
             ),
             Container(
-              padding: EdgeInsets.all(50),
+              padding: EdgeInsets.all(48),
               alignment: Alignment(0, 0.9),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -53,7 +55,6 @@ class SignUp extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 5),
                   const Text(
                     "Nhập số điện thoại để đăng ký và sử dụng dịch vụ.",
                     style: TextStyle(
@@ -68,19 +69,27 @@ class SignUp extends StatelessWidget {
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'Vui lòng nhập số điện thoại',
-                        hintStyle: const TextStyle(color: Color(0xFF0062B6), fontSize: 15),
+                        hintStyle: const TextStyle(
+                            color: Color(0xFF0062B6), fontSize: 15),
                         filled: true,
                         fillColor: Colors.white,
-                        border: const OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFF0062B6), width: 2),
+                        enabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFF0062B6)),
+                          // Viền khi không focus
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFF0062B6)),
+                          // Viền khi focus
                           borderRadius: BorderRadius.all(Radius.circular(12)),
                         ),
                         contentPadding: const EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 20,
+                          vertical: 8,
+                          horizontal: 16,
                         ),
                         prefixIcon: Padding(
-                          padding: const EdgeInsets.all(10), // Điều chỉnh khoảng cách của icon
+                          padding: const EdgeInsets.all(10),
+                          // Điều chỉnh khoảng cách của icon
                           child: SvgPicture.asset(
                             'assets/images/Group 2200.svg',
                           ),
@@ -93,13 +102,22 @@ class SignUp extends StatelessWidget {
                   Container(
                     width: 310,
                     height: 44,
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFF003191), Color(0xFF00AEEF)],
+                        // Hai màu gradient
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                      borderRadius: BorderRadius.circular(12), // Bo góc
+                    ),
                     child: ElevatedButton(
                       onPressed: () {
                         print("Button pressed");
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF0062B6),
-                        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 60),
+                        backgroundColor: Colors.transparent, // Nền trong suốt
+                        shadowColor: Colors.transparent, // Không bóng
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
@@ -114,7 +132,7 @@ class SignUp extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                    padding: EdgeInsets.fromLTRB(32, 0, 0, 0),
                     child: Row(
                       children: [
                         const Text(
