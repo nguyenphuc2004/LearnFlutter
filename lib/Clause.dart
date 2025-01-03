@@ -10,7 +10,6 @@ class Clause extends StatefulWidget {
 
 class ClauseState extends State<Clause> {
   bool checkBoxValue = false;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
