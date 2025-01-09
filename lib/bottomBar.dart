@@ -18,11 +18,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // Thêm các màn hình vào danh sách _screens
   final List<Widget> _screens = [
-    SignUp(),
+    HomePage(),
     Service(),
     HomePage(),
-    Clause(),
-    SignUpInfo()
+    HomePage(),
+    HomePage(),
   ];
 
   @override
@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
               left: 0,
               right: 0,
               child: Container(
-                height: 150,
+                height: 100,
                 padding: EdgeInsets.only(bottom: 10, right: 10, left: 10),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(24), // Bo tròn góc
@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       index: _currentIndex,
                       items: [
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             SvgPicture.asset(
                               "assets/images/Group1.svg",
@@ -62,7 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   : Color(0xFF0062B6),
                             ),
                             SizedBox(height: 3),
-                            if (_currentIndex != 0) // Hiển thị chữ nếu không phải tab được chọn
+                            if (_currentIndex !=
+                                0) // Hiển thị chữ nếu không phải tab được chọn
                               Text(
                                 "Sign Up",
                                 style: TextStyle(
@@ -73,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             SvgPicture.asset(
                               "assets/images/Group.svg",
@@ -95,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             SvgPicture.asset(
                               "assets/images/Group 1983.svg",
@@ -117,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             SvgPicture.asset(
                               "assets/images/Vector5.svg",
@@ -139,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             SvgPicture.asset(
                               "assets/images/Group 2277.svg",

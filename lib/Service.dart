@@ -14,23 +14,6 @@ class ServiceState extends State<Service> {
       appBar: AppBar(
           title: Row(
         children: [
-          GestureDetector(
-            onTap: () {
-              // Navigator.pop(context);
-            },
-            child: Align(
-              alignment: Alignment.topLeft,
-              // Can adjust to desired position
-              child: Padding(
-                padding: const EdgeInsets.only(top: 8, left: 8),
-                child: SvgPicture.asset(
-                  'assets/images/Group 1833.svg',
-                  width: 43,
-                  height: 43,
-                ),
-              ),
-            ),
-          ),
           const Align(
             alignment: Alignment.topLeft,
             // Can adjust to desired position
@@ -44,10 +27,11 @@ class ServiceState extends State<Service> {
                       fontWeight: FontWeight.bold),
                 )),
           ),
+          Spacer(),
           Align(
             alignment: Alignment.topRight,
             child: Padding(
-              padding: EdgeInsets.only(top: 8, left: 180),
+              padding: EdgeInsets.only(top: 8),
               child: SvgPicture.asset('assets/images/Vector1.svg'),
             ),
           ),
@@ -72,7 +56,7 @@ class ServiceState extends State<Service> {
             child: Align(
               alignment: Alignment.topLeft,
               child: Container(
-                height: 990,
+                height: MediaQuery.of(context).size.height * 1.5,
                 padding: const EdgeInsets.only(top: 40, left: 28),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -288,7 +272,7 @@ class ServiceState extends State<Service> {
                                         child: Column(
                                           children: [
                                             SvgPicture.asset(
-                                                'assets/images/Group 2212.svg'),
+                                                'assets/images/Group 2103.svg'),
                                             SizedBox(height: 8),
                                             Text(
                                               "Thông tin\ngiá nước",
@@ -305,10 +289,10 @@ class ServiceState extends State<Service> {
                                         child: Column(
                                           children: [
                                             SvgPicture.asset(
-                                                'assets/images/Group 2157.svg'),
+                                                'assets/images/Group 2212.svg'),
                                             SizedBox(height: 8),
                                             Text(
-                                              "Thanh toán\n    Online",
+                                              " Hình thức\nthanh toán",
                                               style: TextStyle(
                                                   fontSize: 13,
                                                   color: Colors.black),
@@ -316,13 +300,13 @@ class ServiceState extends State<Service> {
                                           ],
                                         ),
                                       ),
-                                      SizedBox(width: 60),
+                                      SizedBox(width: 65),
                                       GestureDetector(
                                         onTap: () {},
                                         child: Column(
                                           children: [
                                             SvgPicture.asset(
-                                                'assets/images/Group 2213.svg'),
+                                                'assets/images/Group 2365.svg'),
                                             SizedBox(height: 8),
                                             Text(
                                               " Đăng ký\nđịnh mức",
@@ -338,7 +322,7 @@ class ServiceState extends State<Service> {
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      left: 20, top: 20,bottom: 30),
+                                      left: 18, top: 20,bottom: 30),
                                   child: Row(
                                     children: [
                                       GestureDetector(
@@ -346,10 +330,27 @@ class ServiceState extends State<Service> {
                                         child: Column(
                                           children: [
                                             SvgPicture.asset(
-                                                'assets/images/Group 2212.svg'),
+                                                'assets/images/lichSuThanhToan.svg'),
                                             SizedBox(height: 8),
                                             Text(
-                                              "Thông tin\ngiá nước",
+                                              "   Lịch sử\nthanh toán",
+                                              style: TextStyle(
+                                                  fontSize: 13,
+                                                  color: Colors.black),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(width: 55),
+                                      GestureDetector(
+                                        onTap: () {},
+                                        child: Column(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/images/water.svg'),
+                                            SizedBox(height: 8),
+                                            Text(
+                                              "Chất lượng\n     nước",
                                               style: TextStyle(
                                                   fontSize: 13,
                                                   color: Colors.black),
@@ -363,24 +364,7 @@ class ServiceState extends State<Service> {
                                         child: Column(
                                           children: [
                                             SvgPicture.asset(
-                                                'assets/images/Group 2157.svg'),
-                                            SizedBox(height: 8),
-                                            Text(
-                                              "Thanh toán\n    Online",
-                                              style: TextStyle(
-                                                  fontSize: 13,
-                                                  color: Colors.black),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(width: 60),
-                                      GestureDetector(
-                                        onTap: () {},
-                                        child: Column(
-                                          children: [
-                                            SvgPicture.asset(
-                                                'assets/images/Group 2213.svg'),
+                                                'assets/images/491931104.svg'),
                                             SizedBox(height: 8),
                                             Text(
                                               " Đăng ký\nđịnh mức",
@@ -553,6 +537,93 @@ class ServiceState extends State<Service> {
                                             SizedBox(height: 8),
                                             Text(
                                               "Thông tin\ngiá nước",
+                                              style: TextStyle(
+                                                  fontSize: 13,
+                                                  color: Colors.black),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ), // Chỉnh màu nền Stack
+                          ),),
+
+                      ],
+                    ),
+                    SizedBox(height: 100),
+                    Stack(
+                      children: [
+                        // Container với màu nền cho toàn bộ Stack
+                        Padding(padding: EdgeInsets.only(right: 30),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20)
+                            ),
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Padding(
+                                    padding: EdgeInsets.only(top: 30,left: 30),
+                                    child: Text('Thông báo - trợ giúp',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                      ),),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 25, top: 20,bottom:30),
+                                  child: Row(
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {},
+                                        child: Column(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/images/GroupTieuThu.svg'),
+                                            SizedBox(height: 8),
+                                            Text(
+                                              "Đăng ký mới",
+                                              style: TextStyle(
+                                                  fontSize: 13,
+                                                  color: Colors.black),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(width: 40),
+                                      GestureDetector(
+                                        onTap: () {},
+                                        child: Column(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/images/Bill.svg'),
+                                            SizedBox(height: 8),
+                                            Text(
+                                              "Đổi mục đích\nsử dụng",
+                                              style: TextStyle(
+                                                  fontSize: 13,
+                                                  color: Colors.black),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(width: 50),
+                                      GestureDetector(
+                                        onTap: () {},
+                                        child: Column(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/images/Group 2213.svg'),
+                                            SizedBox(height: 8),
+                                            Text(
+                                              "Tiến độ\ndịch vụ",
                                               style: TextStyle(
                                                   fontSize: 13,
                                                   color: Colors.black),

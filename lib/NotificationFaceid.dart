@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:te/SignIn.dart';
 
 class FaceIdActivate extends StatelessWidget {
   @override
@@ -58,7 +59,10 @@ class FaceIdActivate extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pop();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignIn()),
+                    );
                   },
                   child: const Text(
                     "KHÔNG DÙNG",
@@ -160,8 +164,10 @@ class FaceIdSuccess extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                // Quay lại trang chủ chứ không quay lại trang trước đó
-                Navigator.of(context).popUntil((route) => route.isFirst);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignIn()),
+                );
               },
               child: Text("ĐÓNG",
                   style: TextStyle(

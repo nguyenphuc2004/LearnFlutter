@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:te/Clause.dart';
+import 'package:te/SignIn.dart';
 
-class SignUp extends StatelessWidget {
+
+class SignUp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => SignUpState();
+}
+
+class SignUpState extends State<SignUp> {
+  final TextEditingController _nameController = TextEditingController();
+  bool? _nameError;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -47,7 +58,7 @@ class SignUp extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     "Đăng ký",
                     style: TextStyle(
                       color: Color(0xFF0062B6),
@@ -55,18 +66,19 @@ class SignUp extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const Text(
+                  Text(
                     "Nhập số điện thoại để đăng ký và sử dụng dịch vụ.",
                     style: TextStyle(
                       color: Color(0xFF0062B6),
                       fontSize: 13,
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
                   Container(
                     width: 310,
                     height: 44,
                     child: TextField(
+                      controller: _nameController,
                       decoration: InputDecoration(
                         hintText: 'Vui lòng nhập số điện thoại',
                         hintStyle: const TextStyle(
@@ -98,7 +110,21 @@ class SignUp extends StatelessWidget {
                       keyboardType: TextInputType.phone,
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  if (_nameError == true)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8),
+                      child: Row(
+                        children: [
+                          Icon(Icons.info, size: 15, color: Colors.red),
+                          SizedBox(width: 5),
+                          const Text(
+                            'Vui lòng điền vào số điện thoại',
+                            style: TextStyle(color: Colors.red, fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ),
+                  SizedBox(height: 15),
                   Container(
                     width: 310,
                     height: 44,
@@ -113,7 +139,19 @@ class SignUp extends StatelessWidget {
                     ),
                     child: ElevatedButton(
                       onPressed: () {
-                        print("Button pressed");
+                        setState(() {
+                          String phoneNumber = _nameController.text;
+                          // Biểu thức chính quy kiểm tra số điện thoại
+                          RegExp phoneRegExp = RegExp(r'^0[0-9]{9}$'); // Số điện thoại bắt đầu bằng 0 và có 10 chữ số
+                          if (phoneNumber.isEmpty || !phoneRegExp.hasMatch(phoneNumber)) {
+                            _nameError = true; // Đặt lỗi nếu không hợp lệ
+                          } else {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Clause()),
+                            );
+                          }
+                        });
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent, // Nền trong suốt
@@ -144,7 +182,10 @@ class SignUp extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.pop(context);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SignIn()),
+                            );
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,

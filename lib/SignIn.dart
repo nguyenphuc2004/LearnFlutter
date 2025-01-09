@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:te/SignUp.dart';
-import 'Clause.dart';
+import 'package:te/bottomBar.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends StatefulWidget {
+  @override
+  SignInState createState() => SignInState();
+}
+
+class SignInState extends State<SignIn>  {
+  final TextEditingController _nameController = TextEditingController();
+  bool? _nameError;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -67,6 +75,7 @@ class SignIn extends StatelessWidget {
                 width: 310,
                 height: 44,
                 child: TextField(
+                  controller: _nameController,
                   decoration: InputDecoration(
                     hintText: 'Nhập số điện thoại',
                     hintStyle:
@@ -97,6 +106,20 @@ class SignIn extends StatelessWidget {
                   keyboardType: TextInputType.phone,
                 ),
               ),
+              if (_nameError == true)
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Row(
+                    children: [
+                      Icon(Icons.info, size: 15, color: Colors.red),
+                      SizedBox(width: 5),
+                      const Text(
+                        'Vui lòng điền vào số điện thoại',
+                        style: TextStyle(color: Colors.red, fontSize: 12),
+                      ),
+                    ],
+                  ),
+                ),
               const SizedBox(height: 15),
               Container(
                 width: 310,
@@ -112,7 +135,21 @@ class SignIn extends StatelessWidget {
                 ),
                 child: ElevatedButton(
                   onPressed: () {
-                    print("Button pressed");
+                    setState(() {
+                      String phoneNumber = _nameController.text;
+                      // Biểu thức chính quy kiểm tra số điện thoại
+                      RegExp phoneRegExp = RegExp(r'^\+84[0-9]{9}$|^[0-9]{10}$');
+                      if (phoneNumber.isEmpty || !phoneRegExp.hasMatch(phoneNumber)) {
+                        _nameError = true; // Đặt lỗi nếu không hợp lệ
+                      } else if(phoneNumber == '0353181426') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyHomePage()),
+                        );
+                      }else{
+                        _nameError == true;
+                      }
+                    });
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
@@ -143,7 +180,7 @@ class SignIn extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Clause()),
+                          MaterialPageRoute(builder: (context) => SignUp()),
                         );
                       },
                       style: TextButton.styleFrom(
