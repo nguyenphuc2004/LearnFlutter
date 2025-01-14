@@ -35,7 +35,7 @@ class newsPromotions extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 16),
-                        child: Image.asset('assets/images/bn1.png'),
+                        child: Image.asset('assets/images/bn3.png'),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 16, top: 8),

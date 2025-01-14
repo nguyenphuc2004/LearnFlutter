@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:te/Clause.dart';
 import 'package:te/SignIn.dart';
 
-
 class SignUp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => SignUpState();
@@ -142,8 +141,10 @@ class SignUpState extends State<SignUp> {
                         setState(() {
                           String phoneNumber = _nameController.text;
                           // Biểu thức chính quy kiểm tra số điện thoại
-                          RegExp phoneRegExp = RegExp(r'^0[0-9]{9}$'); // Số điện thoại bắt đầu bằng 0 và có 10 chữ số
-                          if (phoneNumber.isEmpty || !phoneRegExp.hasMatch(phoneNumber)) {
+                          RegExp phoneRegExp = RegExp(
+                              r'^0[0-9]{9}$'); // Số điện thoại bắt đầu bằng 0 và có 10 chữ số
+                          if (phoneNumber.isEmpty ||
+                              !phoneRegExp.hasMatch(phoneNumber)) {
                             _nameError = true; // Đặt lỗi nếu không hợp lệ
                           } else {
                             Navigator.push(

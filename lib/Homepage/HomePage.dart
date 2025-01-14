@@ -7,7 +7,7 @@ import 'package:te/Homepage/newNotification.dart';
 import 'package:te/Homepage/newsPromotions.dart';
 import 'package:te/Homepage/serviceOnline.dart';
 
-import 'Homepage/partnerBank.dart';
+import 'partnerBank.dart';
 class HomePage extends StatefulWidget {
   @override
   HomePageState createState() => HomePageState();

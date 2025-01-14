@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:te/Sevices/ServiceRequest.dart';
+import 'package:te/appbar/AppBarCommon.dart';
 
 class Service extends StatefulWidget {
   @override
@@ -12,38 +14,7 @@ class ServiceState extends State<Service> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-          title: Row(
-        children: [
-          const Align(
-            alignment: Alignment.topLeft,
-            // Can adjust to desired position
-            child: Padding(
-                padding: EdgeInsets.only(top: 8, left: 18),
-                child: Text(
-                  'Dịch vụ',
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Color(0xff0062B6),
-                      fontWeight: FontWeight.bold),
-                )),
-          ),
-          Spacer(),
-          Align(
-            alignment: Alignment.topRight,
-            child: Padding(
-              padding: EdgeInsets.only(top: 8),
-              child: SvgPicture.asset('assets/images/Vector1.svg'),
-            ),
-          ),
-          Align(
-            alignment: Alignment.topRight,
-            child: Padding(
-              padding: EdgeInsets.only(top: 8, left: 20),
-              child: SvgPicture.asset('assets/images/26. Notification.svg'),
-            ),
-          )
-        ],
-      )),
+          title: AppBarCustom(title: 'Dịch vụ')),
       body: Stack(
         children: [
           Align(
@@ -367,7 +338,7 @@ class ServiceState extends State<Service> {
                                                 'assets/images/491931104.svg'),
                                             SizedBox(height: 8),
                                             Text(
-                                              " Đăng ký\nđịnh mức",
+                                              "       Báo\nchỉ số nước",
                                               style: TextStyle(
                                                   fontSize: 13,
                                                   color: Colors.black),
@@ -488,14 +459,19 @@ class ServiceState extends State<Service> {
                                       ),
                                       SizedBox(width: 60),
                                       GestureDetector(
-                                        onTap: () {},
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => ServiceRequest()),
+                                          );
+                                        },
                                         child: Column(
                                           children: [
                                             SvgPicture.asset(
-                                                'assets/images/Group 2157.svg'),
+                                                'assets/images/Message.svg'),
                                             SizedBox(height: 8),
                                             Text(
-                                              " Đăng ký\nđịnh mức ",
+                                              "Yêu cầu\ndịch vụ ",
                                               style: TextStyle(
                                                   fontSize: 13,
                                                   color: Colors.black),

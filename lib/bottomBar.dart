@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:te/Clause.dart';
-import 'package:te/HomePage.dart';
-import 'package:te/Service.dart';
-import 'package:te/SignIn.dart';
-import 'package:te/SignUp.dart';
-import 'package:te/SignUpInfo.dart';
+import 'package:te/HelpCustom/HelpCustom.dart';
+import 'package:te/Homepage/HomePage.dart';
+import 'package:te/News/News.dart';
+import 'package:te/Sevices/Service.dart';
+import 'package:te/SettingPage/Setting.dart';
+
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -18,11 +18,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // Thêm các màn hình vào danh sách _screens
   final List<Widget> _screens = [
-    HomePage(),
     Service(),
+    News(),
     HomePage(),
-    HomePage(),
-    HomePage(),
+    HelpCustom(),
+    Setting()
   ];
 
   @override
@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             if (_currentIndex !=
                                 0) // Hiển thị chữ nếu không phải tab được chọn
                               Text(
-                                "Sign Up",
+                                "Dịch vụ",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Color(0xFF0062B6),
@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             SizedBox(height: 3),
                             if (_currentIndex != 1)
                               Text(
-                                "Service",
+                                "Tin tức",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Color(0xFF0062B6),
@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             SizedBox(height: 3),
                             if (_currentIndex != 2)
                               Text(
-                                "Home",
+                                "Trang chủ",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Color(0xFF0062B6),
@@ -131,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             SizedBox(height: 3),
                             if (_currentIndex != 3)
                               Text(
-                                "Clause",
+                                "Trợ giúp",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Color(0xFF0062B6),
@@ -153,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             SizedBox(height: 3),
                             if (_currentIndex != 4)
                               Text(
-                                "Info",
+                                "Cài đặt",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Color(0xFF0062B6),
