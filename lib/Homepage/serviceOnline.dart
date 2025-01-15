@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:te/Sevices/ReportProblem.dart';
 
 class serviceOnline extends StatelessWidget {
   @override
@@ -56,7 +57,12 @@ class serviceOnline extends StatelessWidget {
                             _buildFeatureItem(
                               iconPath: 'assets/images/GroupTieuThu.svg',
                               title: 'Tiêu Thụ',
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => ReportProblem()),
+                                );
+                              },
                             ),
                             SizedBox(width: 70),
                             _buildFeatureItem(

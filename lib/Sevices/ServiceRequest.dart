@@ -15,13 +15,15 @@ class ServiceRequest extends StatefulWidget {
 class ServiceRequestState extends State<ServiceRequest> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
+
   bool _isValidPhone(String sdt) {
     RegExp emailRegExp = RegExp(r"^(09\d{8}|03\d{8}|08\d{8}|\+84\d{9})$");
     return emailRegExp.hasMatch(sdt);
   }
   String? selectedValue, selectedValue2;
-  List<File> _images = [];
   bool? _nameError,_nameError1;
+
+  List<File> _images = [];
   Future<void> _pickImages() async {
     // Kiểm tra xem số lượng ảnh đã chọn có lớn hơn hoặc bằng 3 chưa
     if (_images.length >= 3) {

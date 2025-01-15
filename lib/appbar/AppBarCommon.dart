@@ -22,7 +22,7 @@ class AppBarCustom extends StatelessWidget {
             child: Align(
               alignment: Alignment.topLeft,
               child: Padding(
-                padding: const EdgeInsets.only(top: 8, left: 8),
+                padding: const EdgeInsets.only(top: 8),
                 child: SvgPicture.asset(
                   'assets/images/Group 1833.svg',
                   width: 43,
