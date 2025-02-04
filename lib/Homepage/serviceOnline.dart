@@ -1,9 +1,30 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:te/Consume/Consume.dart';
+import 'package:te/Invoice/PaymentInvoice.dart';
+import 'package:te/NewAttachRegistration.dart';
 import 'package:te/Sevices/ReportProblem.dart';
+import 'package:te/WaterConsumptionRegistration.dart';
 
-class serviceOnline extends StatelessWidget {
+class serviceOnline extends StatefulWidget {
+  const serviceOnline({super.key});
+
+  @override
+  State<serviceOnline> createState() => _serviceOnlineState();
+}
+
+class _serviceOnlineState extends State<serviceOnline> {
+  final PageController _pageController = PageController(initialPage: 0);
+
+  void navigateToPage(int pageIndex) {
+    _pageController.animateToPage(
+      pageIndex,
+      duration: Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,13 +35,31 @@ class serviceOnline extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
         ),
         child: Stack(children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: SvgPicture.asset('assets/images/nút mũi tên trái.svg'),
+          GestureDetector(
+            onTap: () {
+              navigateToPage(1);
+            },
+            child: Container(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: SvgPicture.asset(
+                  'assets/images/nút mũi tên trái.svg',
+                ),
+              ),
+            ),
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: SvgPicture.asset('assets/images/nút mũi tên phải.svg'),
+          GestureDetector(
+            onTap: () {
+              navigateToPage(0);
+            },
+            child: Container(
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: SvgPicture.asset(
+                  'assets/images/nút mũi tên phải.svg',
+                ),
+              ),
+            ),
           ),
           Align(
             alignment: Alignment.topLeft,
@@ -45,6 +84,7 @@ class serviceOnline extends StatelessWidget {
           Stack(
             children: [
               PageView(
+                controller: _pageController,
                 children: [
                   // Trang 1
                   Column(
@@ -60,7 +100,8 @@ class serviceOnline extends StatelessWidget {
                               onTap: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => ReportProblem()),
+                                  MaterialPageRoute(
+                                      builder: (context) => ConSume()),
                                 );
                               },
                             ),
@@ -68,13 +109,25 @@ class serviceOnline extends StatelessWidget {
                             _buildFeatureItem(
                               iconPath: 'assets/images/Bill.svg',
                               title: 'Hóa đơn \ntiền nước',
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => PaymentInvoice()),
+                                );
+                              },
                             ),
                             SizedBox(width: 70),
                             _buildFeatureItem(
                               iconPath: 'assets/images/Group 2213.svg',
                               title: 'Lịch đọc số',
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ReportProblem()),
+                                );
+                              },
                             ),
                           ],
                         ),
@@ -98,15 +151,21 @@ class serviceOnline extends StatelessWidget {
                             SizedBox(width: 50),
                             _buildFeatureItem(
                               iconPath: 'assets/images/Vector6.svg',
-                              title: '   Lịch sử \nthanh toán',
-                              onTap: () {},
+                              title: 'Đăng ký mới',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          NewAttachRegistration()),
+                                );
+                              },
                             ),
                           ],
                         ),
                       ),
                     ],
                   ),
-
                   // Trang 2
                   Column(
                     children: [
@@ -130,7 +189,14 @@ class serviceOnline extends StatelessWidget {
                             _buildFeatureItem(
                               iconPath: 'assets/images/Group 2365.svg',
                               title: ' Đăng ký\nđịnh mức',
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          WaterConsumptionRegistration()),
+                                );
+                              },
                             ),
                           ],
                         ),

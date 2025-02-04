@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:te/Homepage/infoUser.dart';
+import 'package:te/SettingPage/CommentList.dart';
+import 'package:te/SettingPage/LinkMaDanhBo.dart';
 import 'package:te/SettingPage/updateInfo.dart';
+import 'package:te/SettingPage/UserManual.dart';
 
 class Setting extends StatefulWidget {
   @override
@@ -93,7 +96,11 @@ class SettingState extends State<Setting> {
                           SvgPicture.asset('assets/images/LinkOutline.svg'),
                       title: Text('Liên kết mã danh bộ'),
                       onTap: () {
-                        print("Cập nhật thông tin clicked");
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Linkmadanhbo())
+                        );
                       },
                     ),
                     ListTile(
@@ -101,14 +108,22 @@ class SettingState extends State<Setting> {
                           SvgPicture.asset('assets/images/MailOutline.svg'),
                       title: Text('Góp ý ứng dụng'),
                       onTap: () {
-                        print("Cập nhật thông tin clicked");
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Commentlist())
+                        );
                       },
                     ),
                     ListTile(
                       leading: SvgPicture.asset('assets/images/Book.svg'),
                       title: Text('Hướng dẫn sử dụng'),
                       onTap: () {
-                        print("Cập nhật thông tin clicked");
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => UserManual())
+                        );
                       },
                     ),
                     ListTile(

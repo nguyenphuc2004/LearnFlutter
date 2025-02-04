@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     child: CurvedNavigationBar(
                       backgroundColor: Colors.transparent,
-                      buttonBackgroundColor: Colors.blue,
+                      buttonBackgroundColor:  Color(0xFF00AEEF),
                       height: 70,
                       index: _currentIndex,
                       items: [
