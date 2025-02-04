@@ -863,78 +863,75 @@ class _LinkMaDanhBoDetailsState extends State<LinkMaDanhBoDetails> {
                             ),
                           ),
                           Container(
+                            margin: EdgeInsets.only(top: 20),
                             width: 383,
                             height: 125,
-                            margin: EdgeInsets.only(top: 20),
-                            padding: EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.blue, // Màu viền ngoài
-                                width: 2, // Độ dày viền ngoài
-                              ),
-                              borderRadius: BorderRadius.circular(8), // Bo góc
+                              borderRadius: BorderRadius.circular(12), // Bo góc
                               gradient: LinearGradient(
-                                colors: [Colors.blue, Colors.green], // Viền có hai màu
+                                colors: [Color(0xFF003191), Color(0xFF00AEEF)],
+                                // Gradient màu viền
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                               ),
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'DO THI BICH NGOC',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
+                            child: Container(
+                              margin: EdgeInsets.all(2.0), // Khoảng cách viền
+                              padding: EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                color: Colors.white, // Nền trắng bên trong
+                                borderRadius:
+                                BorderRadius.circular(10), // Bo góc khớp với viền
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'DO THI BICH NGOC',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      'Địa chỉ: ',
-                                      style: TextStyle(
-                                          fontSize: 18, fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      '00A đường Nguyễn Văn Đậu',
-                                      style: TextStyle(
-                                        fontSize: 18,
+                                  Row(
+                                    children: [
+                                      Text(
+                                        'Địa chỉ: ',
+                                        style: TextStyle(
+                                            fontSize: 18, fontWeight: FontWeight.bold),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    RichText(
-                                      text: TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text: 'Chọn',
-                                            style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold,
-                                              decoration: TextDecoration.underline,
-                                              decorationColor: Colors.blue,
-                                              decorationThickness: 2,
-                                              color: Colors.blue, // Màu chữ "Chọn"
-                                            ),
-                                          ),
-                                          TextSpan(
-                                            text: ' thêm',
-                                            style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.green, // Màu chữ "thêm"
-                                            ),
-                                          ),
-                                        ],
+                                      Text(
+                                        '00A đường Nguyễn Văn Đậu',
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      RichText(
+                                        text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: 'Chọn',
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                decoration: TextDecoration.underline,
+                                                decorationColor: Colors.blue,
+                                                decorationThickness: 2,
+                                                color: Colors.blue, // Màu chữ "Chọn"
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           )
                         ],
