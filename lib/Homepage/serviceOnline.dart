@@ -5,6 +5,7 @@ import 'package:te/Consume/Consume.dart';
 import 'package:te/Invoice/PaymentInvoice.dart';
 import 'package:te/NewAttachRegistration.dart';
 import 'package:te/Sevices/ReportProblem.dart';
+import 'package:te/Sevices/ServiceProgress.dart';
 import 'package:te/WaterConsumptionRegistration.dart';
 
 class serviceOnline extends StatefulWidget {
@@ -215,7 +216,14 @@ class _serviceOnlineState extends State<serviceOnline> {
                             _buildFeatureItem(
                               iconPath: 'assets/images/Group 2143.svg',
                               title: 'Tiến độ\ndịch vụ',
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ServiceProgress()),
+                                );
+                              },
                             ),
                           ],
                         ),
