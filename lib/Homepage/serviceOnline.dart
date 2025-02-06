@@ -4,9 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:te/Consume/Consume.dart';
 import 'package:te/Invoice/PaymentInvoice.dart';
 import 'package:te/NewAttachRegistration.dart';
+import 'package:te/Proceduce.dart';
 import 'package:te/Sevices/ReportProblem.dart';
 import 'package:te/Sevices/ServiceProgress.dart';
 import 'package:te/WaterConsumptionRegistration.dart';
+import 'package:te/WaterPriceList.dart';
 
 class serviceOnline extends StatefulWidget {
   const serviceOnline({super.key});
@@ -147,7 +149,14 @@ class _serviceOnlineState extends State<serviceOnline> {
                             _buildFeatureItem(
                               iconPath: 'assets/images/water.svg',
                               title: '    Thông báo\nchất lượng nước',
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          Proceduce()),
+                                );
+                              },
                             ),
                             SizedBox(width: 50),
                             _buildFeatureItem(
@@ -178,7 +187,14 @@ class _serviceOnlineState extends State<serviceOnline> {
                             _buildFeatureItem(
                               iconPath: 'assets/images/Group 2103.svg',
                               title: 'Thông tin\ngiá nước',
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          WaterPriceList()),
+                                );
+                              },
                             ),
                             SizedBox(width: 60),
                             _buildFeatureItem(

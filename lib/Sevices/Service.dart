@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:te/Sevices/PaymentMethod.dart';
 import 'package:te/Sevices/ServiceRequest.dart';
 import 'package:te/appbar/AppBarCommon.dart';
 
@@ -256,7 +257,12 @@ class ServiceState extends State<Service> {
                                       ),
                                       SizedBox(width: 60),
                                       GestureDetector(
-                                        onTap: () {},
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => PaymentMethod()),
+                                          );
+                                        },
                                         child: Column(
                                           children: [
                                             SvgPicture.asset(
