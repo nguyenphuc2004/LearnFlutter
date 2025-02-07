@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:te/NotificationBell.dart';
 
 class AppBarCustom extends StatelessWidget {
   final String title; // Thêm tham số title
@@ -53,13 +54,21 @@ class AppBarCustom extends StatelessWidget {
             child: SvgPicture.asset('assets/images/Vector1.svg'),
           ),
         ),
-        Align(
-          alignment: Alignment.topRight,
-          child: Padding(
-            padding: EdgeInsets.only(top: 8, left: 24),
-            child: SvgPicture.asset('assets/images/26. Notification.svg'),
+        GestureDetector(
+          onTap: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NotificationBell()),
+            );
+          },
+          child: Align(
+            alignment: Alignment.topRight,
+            child: Padding(
+              padding: EdgeInsets.only(top: 8, left: 24),
+              child: SvgPicture.asset('assets/images/26. Notification.svg'),
+            ),
           ),
-        ),
+        )
       ],
     );
   }

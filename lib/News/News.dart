@@ -16,6 +16,7 @@ class NewsState extends State<News> {
         length: 4, // Số lượng tab
         child: Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             title: AppBarCustom(
               title: "Tin tức",
               hasBackButton: false,
@@ -39,6 +40,7 @@ class NewsState extends State<News> {
                     fontSize: 15, // Kích thước chữ của tab được chọn
                     fontWeight: FontWeight.bold,
                   ),
+                  indicatorSize: TabBarIndicatorSize.tab,
                   tabs: [
                     Tab(text: 'Tất cả'),
                     Tab(text: 'Tin tức'),

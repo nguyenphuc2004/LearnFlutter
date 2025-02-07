@@ -15,6 +15,7 @@ class ServiceState extends State<Service> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
           title: AppBarCustom(title: 'Dịch vụ')),
       body: Stack(
         children: [

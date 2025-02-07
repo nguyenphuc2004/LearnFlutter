@@ -70,10 +70,9 @@ class _WaterConsumptionRegistrationState
                 borderRadius: BorderRadius.circular(8), // Bo góc
               ),
               child: TabBar(
-                labelColor: Colors.blue,
-                // Màu chữ của tab được chọn
-                unselectedLabelColor: Color(0xFF888888),
-                // Màu chữ của tab không được chọn
+                labelColor: Colors.blue, // Màu chữ của tab được chọn
+                unselectedLabelColor: Color(0xFF888888), // Màu chữ của tab không được chọn
+
                 indicator: BoxDecoration(
                   color: Color(0xFFD5F0FF), // Màu của tab được chọn
                   borderRadius:

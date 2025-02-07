@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../NotificationBell.dart';
 
 class Appbartulam extends StatelessWidget {
   final String title;
@@ -59,11 +62,19 @@ class Appbartulam extends StatelessWidget {
               child: SvgPicture.asset('assets/images/Vector1.svg'),
             ),
           ),
-          Align(
-            alignment: Alignment.topRight,
-            child: Padding(
-              padding: EdgeInsets.only(top: 40, right: 25),
-              child: SvgPicture.asset('assets/images/26. Notification.svg'),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NotificationBell()),
+              );
+            },
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: EdgeInsets.only(top: 40, right: 25),
+                child: SvgPicture.asset('assets/images/26. Notification.svg'),
+              ),
             ),
           )
         ],

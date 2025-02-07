@@ -14,6 +14,7 @@ class HelpCustomState extends State<HelpCustom> {
         child: Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: AppBarCustom(title: 'Trợ giúp'),
       ),
       body: Stack(

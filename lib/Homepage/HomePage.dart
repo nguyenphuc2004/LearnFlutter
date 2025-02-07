@@ -6,6 +6,7 @@ import 'package:te/Homepage/infoUser.dart';
 import 'package:te/Homepage/newNotification.dart';
 import 'package:te/Homepage/newsPromotions.dart';
 import 'package:te/Homepage/serviceOnline.dart';
+import 'package:te/NotificationBell.dart';
 
 import 'partnerBank.dart';
 class HomePage extends StatefulWidget {
@@ -37,12 +38,20 @@ class HomePageState extends State<HomePage> {
                     child: SvgPicture.asset('assets/images/Vector1.svg'),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 40, right: 25),
-                    child:
-                        SvgPicture.asset('assets/images/26. Notification.svg'),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => NotificationBell()),
+                    );
+                  },
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 40, right: 25),
+                      child:
+                      SvgPicture.asset('assets/images/26. Notification.svg'),
+                    ),
                   ),
                 )
               ],
