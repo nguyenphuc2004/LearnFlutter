@@ -14,7 +14,9 @@ class _UserManualState extends State<UserManual> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: AppBarCustom(
           title: "Hướng dẫn sử dụng",

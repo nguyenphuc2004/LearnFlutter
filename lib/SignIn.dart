@@ -16,6 +16,7 @@ class SignInState extends State<SignIn>  {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+            backgroundColor: Colors.white,
             body: Stack(
       children: [
         Positioned.fill(

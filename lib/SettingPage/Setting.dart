@@ -1,3 +1,4 @@
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -19,6 +20,7 @@ class SettingState extends State<Setting> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.white,
       body: Stack(
         children: [
           Align(
@@ -79,6 +81,12 @@ class SettingState extends State<Setting> {
                         print("Đăng nhập bằng vân tay/FaceID clicked");
                       },
                     ),
+                    DottedLine(
+                      dashColor: Colors.grey[300]!,
+                      lineThickness: 1, // Độ dày
+                      dashLength: 2, // Độ dài mỗi nét đứt
+                      dashGapLength: 2, // Khoảng cách giữa các nét đứt
+                    ),
                     // Các phần tử khác
                     ListTile(
                       leading:
@@ -90,6 +98,12 @@ class SettingState extends State<Setting> {
                             MaterialPageRoute(
                                 builder: (context) => updateInfo()));
                       },
+                    ),
+                    DottedLine(
+                      dashColor: Colors.grey[300]!,
+                      lineThickness: 1, // Độ dày
+                      dashLength: 2, // Độ dài mỗi nét đứt
+                      dashGapLength: 2, // Khoảng cách giữa các nét đứt
                     ),
                     ListTile(
                       leading:
@@ -103,6 +117,12 @@ class SettingState extends State<Setting> {
                         );
                       },
                     ),
+                    DottedLine(
+                      dashColor: Colors.grey[300]!,
+                      lineThickness: 1, // Độ dày
+                      dashLength: 2, // Độ dài mỗi nét đứt
+                      dashGapLength: 2, // Khoảng cách giữa các nét đứt
+                    ),
                     ListTile(
                       leading:
                           SvgPicture.asset('assets/images/MailOutline.svg'),
@@ -115,6 +135,12 @@ class SettingState extends State<Setting> {
                         );
                       },
                     ),
+                    DottedLine(
+                      dashColor: Colors.grey[300]!,
+                      lineThickness: 1, // Độ dày
+                      dashLength: 2, // Độ dài mỗi nét đứt
+                      dashGapLength: 2, // Khoảng cách giữa các nét đứt
+                    ),
                     ListTile(
                       leading: SvgPicture.asset('assets/images/Book.svg'),
                       title: Text('Hướng dẫn sử dụng'),
@@ -126,6 +152,12 @@ class SettingState extends State<Setting> {
                         );
                       },
                     ),
+                    DottedLine(
+                      dashColor: Colors.grey[300]!,
+                      lineThickness: 1, // Độ dày
+                      dashLength: 2, // Độ dài mỗi nét đứt
+                      dashGapLength: 2, // Khoảng cách giữa các nét đứt
+                    ),
                     ListTile(
                       leading:
                           SvgPicture.asset('assets/images/InfoCircleSolid.svg'),
@@ -134,6 +166,12 @@ class SettingState extends State<Setting> {
                         print("Cập nhật thông tin clicked");
                       },
                     ),
+                    DottedLine(
+                      dashColor: Colors.grey[300]!,
+                      lineThickness: 1, // Độ dày
+                      dashLength: 2, // Độ dài mỗi nét đứt
+                      dashGapLength: 2, // Khoảng cách giữa các nét đứt
+                    ),
                     ListTile(
                       leading: SvgPicture.asset('assets/images/Group 2370.svg'),
                       title: Text('Cập nhật ứng dụng'),
@@ -141,12 +179,24 @@ class SettingState extends State<Setting> {
                         print("Cập nhật thông tin clicked");
                       },
                     ),
+                    DottedLine(
+                      dashColor: Colors.grey[300]!,
+                      lineThickness: 1, // Độ dày
+                      dashLength: 2, // Độ dài mỗi nét đứt
+                      dashGapLength: 2, // Khoảng cách giữa các nét đứt
+                    ),
                     ListTile(
                       leading: SvgPicture.asset('assets/images/Vector10.svg'),
                       title: Text('Đăng xuất'),
                       onTap: () {
                         print("Cập nhật thông tin clicked");
                       },
+                    ),
+                    DottedLine(
+                      dashColor: Colors.grey[300]!,
+                      lineThickness: 1, // Độ dày
+                      dashLength: 2, // Độ dài mỗi nét đứt
+                      dashGapLength: 2, // Khoảng cách giữa các nét đứt
                     ),
                     ListTile(
                       leading:

@@ -18,15 +18,44 @@ class serviceOnline extends StatefulWidget {
 }
 
 class _serviceOnlineState extends State<serviceOnline> {
-  final PageController _pageController = PageController(initialPage: 0);
+  // Điều khiển PageView, giúp thay đổi trang bằng cách cuộn hoặc gọi `animateToPage()`
+  final PageController _pageController = PageController();
 
-  void navigateToPage(int pageIndex) {
-    _pageController.animateToPage(
-      pageIndex,
-      duration: Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
+// Lưu trang hiện tại của PageView, ban đầu là trang đầu tiên (0)
+  int _currentPage = 0;
+
+  void _nextPage() {
+    // Kiểm tra nếu chưa đến trang cuối (trang 1) thì mới cho phép chuyển trang
+    if (_currentPage < 1) {
+      setState(() {
+        _currentPage += 1; // Tăng biến đếm trang hiện tại lên 1
+      });
+
+      // Chuyển đổi trang trong PageView đến trang mới (_currentPage)
+      _pageController.animateToPage(
+        _currentPage, // Trang mới sẽ hiển thị
+        duration: Duration(milliseconds: 300), // Hiệu ứng chuyển trang kéo dài 300ms
+        curve: Curves.easeInOut, // Hiệu ứng chuyển động mượt
+      );
+    }
   }
+
+  void _previousPage() {
+    // Kiểm tra nếu chưa phải trang đầu tiên (trang 0) thì mới cho phép quay lại
+    if (_currentPage > 0) {
+      setState(() {
+        _currentPage -= 1; // Giảm biến đếm trang hiện tại đi 1
+      });
+
+      // Quay về trang trước trong PageView
+      _pageController.animateToPage(
+        _currentPage, // Trang mới sẽ hiển thị
+        duration: Duration(milliseconds: 300), // Hiệu ứng chuyển trang kéo dài 300ms
+        curve: Curves.easeInOut, // Hiệu ứng chuyển động mượt
+      );
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,32 +67,6 @@ class _serviceOnlineState extends State<serviceOnline> {
           borderRadius: BorderRadius.circular(16),
         ),
         child: Stack(children: [
-          GestureDetector(
-            onTap: () {
-              navigateToPage(1);
-            },
-            child: Container(
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: SvgPicture.asset(
-                  'assets/images/nút mũi tên trái.svg',
-                ),
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              navigateToPage(0);
-            },
-            child: Container(
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: SvgPicture.asset(
-                  'assets/images/nút mũi tên phải.svg',
-                ),
-              ),
-            ),
-          ),
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
@@ -88,6 +91,11 @@ class _serviceOnlineState extends State<serviceOnline> {
             children: [
               PageView(
                 controller: _pageController,
+                onPageChanged: (index) {
+                  setState(() {
+                    _currentPage = index;
+                  });
+                },
                 children: [
                   // Trang 1
                   Column(
@@ -153,8 +161,7 @@ class _serviceOnlineState extends State<serviceOnline> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          Proceduce()),
+                                      builder: (context) => Proceduce()),
                                 );
                               },
                             ),
@@ -191,8 +198,7 @@ class _serviceOnlineState extends State<serviceOnline> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          WaterPriceList()),
+                                      builder: (context) => WaterPriceList()),
                                 );
                               },
                             ),
@@ -236,8 +242,7 @@ class _serviceOnlineState extends State<serviceOnline> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          ServiceProgress()),
+                                      builder: (context) => ServiceProgress()),
                                 );
                               },
                             ),
@@ -248,6 +253,35 @@ class _serviceOnlineState extends State<serviceOnline> {
                   ),
                 ],
               ),
+              // Nút mũi tên trái
+              if (_currentPage != 0)
+                GestureDetector(
+                  onTap: () {
+                    _previousPage();
+                  },
+                  child: Container(
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: SvgPicture.asset(
+                        'assets/images/nút mũi tên trái.svg',
+                      ),
+                    ),
+                  ),
+                ),
+              if (_currentPage < 1)
+                GestureDetector(
+                  onTap: () {
+                    _nextPage();
+                  },
+                  child: Container(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: SvgPicture.asset(
+                        'assets/images/nút mũi tên phải.svg',
+                      ),
+                    ),
+                  ),
+                ),
 
               // Nút "Xem tất cả"
               Padding(

@@ -12,7 +12,9 @@ class updateInfoState extends State<updateInfo> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: AppBarCustom(title: "Cập nhật thông tin", hasBackButton: true),
       ),

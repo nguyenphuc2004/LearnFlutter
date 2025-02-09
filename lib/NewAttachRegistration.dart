@@ -83,7 +83,10 @@ class _NewAttachRegistrationState extends State<NewAttachRegistration> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        scrolledUnderElevation: 0,
         automaticallyImplyLeading: false,
         title: AppBarCustom(
           title: 'Đăng ký gắn mới',

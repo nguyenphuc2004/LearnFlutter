@@ -32,6 +32,7 @@ class _PaymentInvoiceState extends State<PaymentInvoice> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.white,
       body: Stack(
         children: [
           Appbartulam("Hoá đơn thanh toán"),

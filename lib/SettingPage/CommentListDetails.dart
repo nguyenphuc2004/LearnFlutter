@@ -15,7 +15,9 @@ class _CommentListDetailsState extends State<CommentListDetails> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: AppBarCustom(
           title: "Danh Sách góp ý",

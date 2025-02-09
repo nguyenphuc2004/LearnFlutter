@@ -14,7 +14,10 @@ class ServiceState extends State<Service> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.white,
       appBar: AppBar(
+          backgroundColor: Colors.white,
+          scrolledUnderElevation: 0, // Tắt hiệu ứng đổi màu khi cuộn
         automaticallyImplyLeading: false,
           title: AppBarCustom(title: 'Dịch vụ')),
       body: Stack(
@@ -536,7 +539,7 @@ class ServiceState extends State<Service> {
 
                       ],
                     ),
-                    SizedBox(height: 100),
+                    SizedBox(height: 30),
                     Stack(
                       children: [
                         // Container với màu nền cho toàn bộ Stack

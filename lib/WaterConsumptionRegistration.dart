@@ -51,7 +51,10 @@ class _WaterConsumptionRegistrationState
         child: DefaultTabController(
       length: 2, // Số lượng tab
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
+          backgroundColor: Colors.white,
+          scrolledUnderElevation: 0,
           automaticallyImplyLeading: false,
           title: AppBarCustom(
             title: "Đăng ký định mức",

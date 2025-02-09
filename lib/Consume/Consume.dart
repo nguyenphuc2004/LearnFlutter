@@ -17,6 +17,7 @@ class _ConSumeState extends State<ConSume> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: Column(
           children: [
             Stack(

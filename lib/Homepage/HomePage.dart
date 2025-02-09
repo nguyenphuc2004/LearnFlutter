@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:te/Homepage/chart.dart';
@@ -9,10 +8,12 @@ import 'package:te/Homepage/serviceOnline.dart';
 import 'package:te/NotificationBell.dart';
 
 import 'partnerBank.dart';
+
 class HomePage extends StatefulWidget {
   @override
   HomePageState createState() => HomePageState();
 }
+
 class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -39,18 +40,19 @@ class HomePageState extends State<HomePage> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => NotificationBell()),
+                      MaterialPageRoute(
+                          builder: (context) => NotificationBell()),
                     );
                   },
                   child: Align(
                     alignment: Alignment.topRight,
                     child: Padding(
                       padding: EdgeInsets.only(top: 40, right: 25),
-                      child:
-                      SvgPicture.asset('assets/images/26. Notification.svg'),
+                      child: SvgPicture.asset(
+                          'assets/images/26. Notification.svg'),
                     ),
                   ),
                 )

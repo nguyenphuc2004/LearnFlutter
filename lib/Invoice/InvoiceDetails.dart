@@ -14,7 +14,10 @@ class _InvoiceDetailsState extends State<InvoiceDetails> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        scrolledUnderElevation: 0, // Tắt hiệu ứng đổi màu khi cuộn
         automaticallyImplyLeading: false,
         title: AppBarCustom(
           title: "Chi tiết hóa đơn tiền nước",

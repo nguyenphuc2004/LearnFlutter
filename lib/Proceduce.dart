@@ -16,7 +16,10 @@ class _ProceduceState extends State<Proceduce> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        scrolledUnderElevation: 0,
         automaticallyImplyLeading: false,
         title: AppBarCustom(
           title: "Thủ tục - Văn bằng pháp luật",

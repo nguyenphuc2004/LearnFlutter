@@ -15,7 +15,9 @@ class _LinkmadanhboState extends State<Linkmadanhbo> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: AppBarCustom(
           title: 'Danh sách mã danh bộ',

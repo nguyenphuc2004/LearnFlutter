@@ -14,6 +14,7 @@ class ClauseState extends State<Clause> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(70),
           child: AppBar(

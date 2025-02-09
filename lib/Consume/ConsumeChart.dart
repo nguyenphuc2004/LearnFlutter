@@ -13,6 +13,7 @@ class ConsumeChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.white,
       body: Stack(
         children: [
           Appbartulam('Biểu đồ tiêu thụ'),

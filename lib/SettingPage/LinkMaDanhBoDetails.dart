@@ -49,7 +49,9 @@ class _LinkMaDanhBoDetailsState extends State<LinkMaDanhBoDetails> {
         child: DefaultTabController(
             length: 2,
             child: Scaffold(
+              backgroundColor: Colors.white,
               appBar: AppBar(
+                backgroundColor: Colors.white,
                 automaticallyImplyLeading: false,
                 title: AppBarCustom(
                   title: 'Liên kết mã danh bộ',

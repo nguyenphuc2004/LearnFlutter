@@ -53,6 +53,7 @@ class ServiceRequestState extends State<ServiceRequest> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+            backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: AppBarCustom(

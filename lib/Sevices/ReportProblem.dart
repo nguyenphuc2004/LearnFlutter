@@ -86,7 +86,10 @@ class _ReportProblemState extends State<ReportProblem> {
     ];
     return SafeArea(
         child: Scaffold(
+            backgroundColor: Colors.white,
             appBar: AppBar(
+              backgroundColor: Colors.white,
+              scrolledUnderElevation: 0,
               automaticallyImplyLeading: false,
               title: AppBarCustom(
                 title: "Báo cáo sự cố",

@@ -14,6 +14,7 @@ class _NotificationDetailsState extends State<NotificationDetails> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: AppBarCustom(

@@ -15,7 +15,10 @@ class NewsState extends State<News> {
       child: DefaultTabController(
         length: 4, // Số lượng tab
         child: Scaffold(
+          backgroundColor: Colors.white,
           appBar: AppBar(
+            backgroundColor: Colors.white,
+            scrolledUnderElevation: 0, // Tắt hiệu ứng đổi màu khi cuộn
             automaticallyImplyLeading: false,
             title: AppBarCustom(
               title: "Tin tức",

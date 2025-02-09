@@ -19,6 +19,7 @@ class _NotificationBellState extends State<NotificationBell> {
       child: DefaultTabController(
         length: 4, // Số lượng tab
         child: Scaffold(
+            backgroundColor: Colors.white,
           appBar: AppBar(
             automaticallyImplyLeading: false,
             title: AppBarCustom(
