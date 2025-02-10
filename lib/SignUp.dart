@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:te/Clause.dart';
+import 'package:te/GeneralUse/ButtonCommon.dart';
 import 'package:te/SignIn.dart';
 
 class SignUp extends StatefulWidget {
@@ -125,51 +126,25 @@ class SignUpState extends State<SignUp> {
                       ),
                     ),
                   SizedBox(height: 15),
-                  Container(
-                    width: 310,
-                    height: 44,
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [Color(0xFF003191), Color(0xFF00AEEF)],
-                        // Hai màu gradient
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                      ),
-                      borderRadius: BorderRadius.circular(12), // Bo góc
-                    ),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          String phoneNumber = _nameController.text;
-                          // Biểu thức chính quy kiểm tra số điện thoại
-                          RegExp phoneRegExp = RegExp(
-                              r'^0[0-9]{9}$'); // Số điện thoại bắt đầu bằng 0 và có 10 chữ số
-                          if (phoneNumber.isEmpty ||
-                              !phoneRegExp.hasMatch(phoneNumber)) {
-                            _nameError = true; // Đặt lỗi nếu không hợp lệ
-                          } else {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => Clause()),
-                            );
-                          }
-                        });
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent, // Nền trong suốt
-                        shadowColor: Colors.transparent, // Không bóng
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                      child: const Text(
-                        "Đăng ký bằng OTP",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                  Buttoncommon(
+                    text: "Đăng ký bằng OTP",
+                    onPressed: (){
+                      setState(() {
+                        String phoneNumber = _nameController.text;
+                        // Biểu thức chính quy kiểm tra số điện thoại
+                        RegExp phoneRegExp = RegExp(
+                            r'^0[0-9]{9}$'); // Số điện thoại bắt đầu bằng 0 và có 10 chữ số
+                        if (phoneNumber.isEmpty ||
+                            !phoneRegExp.hasMatch(phoneNumber)) {
+                          _nameError = true; // Đặt lỗi nếu không hợp lệ
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Clause()),
+                          );
+                        }
+                      });
+                    },
                   ),
                   Container(
                     padding: EdgeInsets.fromLTRB(32, 0, 0, 0),

@@ -189,7 +189,7 @@ class SettingState extends State<Setting> {
                       leading: SvgPicture.asset('assets/images/Vector10.svg'),
                       title: Text('Đăng xuất'),
                       onTap: () {
-                        print("Cập nhật thông tin clicked");
+                        Navigator.pop(context);
                       },
                     ),
                     DottedLine(

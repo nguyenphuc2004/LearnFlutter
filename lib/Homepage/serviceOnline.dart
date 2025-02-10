@@ -5,10 +5,13 @@ import 'package:te/Consume/Consume.dart';
 import 'package:te/Invoice/PaymentInvoice.dart';
 import 'package:te/NewAttachRegistration.dart';
 import 'package:te/Proceduce.dart';
+import 'package:te/Sevices/PaymentMethod.dart';
 import 'package:te/Sevices/ReportProblem.dart';
 import 'package:te/Sevices/ServiceProgress.dart';
 import 'package:te/WaterConsumptionRegistration.dart';
+import 'package:te/WaterOutageNews.dart';
 import 'package:te/WaterPriceList.dart';
+import 'package:te/WaterQualityNews.dart';
 
 class serviceOnline extends StatefulWidget {
   const serviceOnline({super.key});
@@ -26,7 +29,7 @@ class _serviceOnlineState extends State<serviceOnline> {
 
   void _nextPage() {
     // Kiểm tra nếu chưa đến trang cuối (trang 1) thì mới cho phép chuyển trang
-    if (_currentPage < 1) {
+    if (_currentPage < 3) {
       setState(() {
         _currentPage += 1; // Tăng biến đếm trang hiện tại lên 1
       });
@@ -34,7 +37,7 @@ class _serviceOnlineState extends State<serviceOnline> {
       // Chuyển đổi trang trong PageView đến trang mới (_currentPage)
       _pageController.animateToPage(
         _currentPage, // Trang mới sẽ hiển thị
-        duration: Duration(milliseconds: 300), // Hiệu ứng chuyển trang kéo dài 300ms
+        duration: Duration(milliseconds: 100), // Hiệu ứng chuyển trang kéo dài 300ms
         curve: Curves.easeInOut, // Hiệu ứng chuyển động mượt
       );
     }
@@ -50,13 +53,11 @@ class _serviceOnlineState extends State<serviceOnline> {
       // Quay về trang trước trong PageView
       _pageController.animateToPage(
         _currentPage, // Trang mới sẽ hiển thị
-        duration: Duration(milliseconds: 300), // Hiệu ứng chuyển trang kéo dài 300ms
+        duration: Duration(milliseconds: 100), // Hiệu ứng chuyển trang kéo dài 300ms
         curve: Curves.easeInOut, // Hiệu ứng chuyển động mượt
       );
     }
   }
-
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -102,7 +103,7 @@ class _serviceOnlineState extends State<serviceOnline> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsets.only(left: 40, top: 40, right: 30),
+                        const EdgeInsets.only(left: 40, top: 40, right: 30),
                         child: Row(
                           children: [
                             _buildFeatureItem(
@@ -133,11 +134,7 @@ class _serviceOnlineState extends State<serviceOnline> {
                               iconPath: 'assets/images/Group 2213.svg',
                               title: 'Lịch đọc số',
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ReportProblem()),
-                                );
+
                               },
                             ),
                           ],
@@ -145,55 +142,12 @@ class _serviceOnlineState extends State<serviceOnline> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsets.only(left: 30, top: 20, right: 30),
-                        child: Row(
-                          children: [
-                            _buildFeatureItem(
-                              iconPath: 'assets/images/lichSuThanhToan.svg',
-                              title: '   Lịch sử \nthanh toán',
-                              onTap: () {},
-                            ),
-                            SizedBox(width: 45),
-                            _buildFeatureItem(
-                              iconPath: 'assets/images/water.svg',
-                              title: '    Thông báo\nchất lượng nước',
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Proceduce()),
-                                );
-                              },
-                            ),
-                            SizedBox(width: 50),
-                            _buildFeatureItem(
-                              iconPath: 'assets/images/Vector6.svg',
-                              title: 'Đăng ký mới',
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          NewAttachRegistration()),
-                                );
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  // Trang 2
-                  Column(
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 50, top: 40, right: 30),
+                        const EdgeInsets.only(left: 30, top: 20, right: 30),
                         child: Row(
                           children: [
                             _buildFeatureItem(
                               iconPath: 'assets/images/Group 2103.svg',
-                              title: 'Thông tin\ngiá nước',
+                              title: '   Thông tin\n  giá nước',
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -202,13 +156,15 @@ class _serviceOnlineState extends State<serviceOnline> {
                                 );
                               },
                             ),
-                            SizedBox(width: 60),
+                            SizedBox(width: 65),
                             _buildFeatureItem(
                               iconPath: 'assets/images/Group 2381.svg',
-                              title: 'Thanh toán\n    Online',
-                              onTap: () {},
+                              title: 'Thanh toán\nonline',
+                              onTap: () {
+
+                              },
                             ),
-                            SizedBox(width: 60),
+                            SizedBox(width: 70),
                             _buildFeatureItem(
                               iconPath: 'assets/images/Group 2365.svg',
                               title: ' Đăng ký\nđịnh mức',
@@ -224,17 +180,62 @@ class _serviceOnlineState extends State<serviceOnline> {
                           ],
                         ),
                       ),
+                    ],
+                  ),
+                  // Trang 2
+                  Column(
+                    children: [
                       Padding(
                         padding:
-                            const EdgeInsets.only(left: 35, top: 20, right: 30),
+                        const EdgeInsets.only(left: 35, top: 40),
+                        child: Row(
+                          children: [
+                            _buildFeatureItem(
+                              iconPath: 'assets/images/lichSuThanhToan.svg',
+                              title: 'Lịch sử\n thanh toán',
+                              onTap: () {
+                              },
+                            ),
+                            SizedBox(width: 60),
+                            _buildFeatureItem(
+                              iconPath: 'assets/images/thongBaoLuongNuoc.svg',
+                              title: 'Thông báo\nchất lượng nước',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Waterqualitynews()),
+                                );
+                              },
+                            ),
+                            SizedBox(width: 50),
+                            _buildFeatureItem(
+                              iconPath: 'assets/images/Group 2252.svg',
+                              title: ' Đăng ký mới',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          NewAttachRegistration()),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                        const EdgeInsets.only(left: 35, top: 20, right: 30),
                         child: Row(
                           children: [
                             _buildFeatureItem(
                               iconPath: 'assets/images/Vector6.svg',
                               title: 'Đổi mục đích\n    sử dụng',
-                              onTap: () {},
+                              onTap: () {
+                              },
                             ),
-                            SizedBox(width: 60),
+                            SizedBox(width: 70),
                             _buildFeatureItem(
                               iconPath: 'assets/images/Group 2143.svg',
                               title: 'Tiến độ\ndịch vụ',
@@ -244,6 +245,145 @@ class _serviceOnlineState extends State<serviceOnline> {
                                   MaterialPageRoute(
                                       builder: (context) => ServiceProgress()),
                                 );
+                              },
+                            ),
+                            SizedBox(width: 90),
+                            _buildFeatureItem(
+                              iconPath: 'assets/images/Group 2378.svg',
+                              title: 'Tái lập\ndanh bạ',
+                              onTap: () {
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  // Trang 3
+                  Column(
+                    children: [
+                      Padding(
+                        padding:
+                        const EdgeInsets.only(left: 40, top: 40),
+                        child: Row(
+                          children: [
+                            _buildFeatureItem(
+                              iconPath: 'assets/images/Group 2101.svg',
+                              title: 'Thủ tục\ncần biết',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Proceduce()),
+                                );
+                              },
+                            ),
+                            SizedBox(width: 80),
+                            _buildFeatureItem(
+                              iconPath: 'assets/images/Message.svg',
+                              title: 'Yêu cầu\ndịch vụ',
+                              onTap: () {},
+                            ),
+                            SizedBox(width: 70),
+                            _buildFeatureItem(
+                              iconPath: 'assets/images/Group 2157.svg',
+                              title: 'Nâng - dời\nđồng hồ nước',
+                              onTap: () {
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                        const EdgeInsets.only(left: 40, top: 20, right: 30),
+                        child: Row(
+                          children: [
+                            _buildFeatureItem(
+                              iconPath: 'assets/images/Warning.svg',
+                              title: 'Báo cáo\nsự cố',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ReportProblem()),
+                                );
+                              },
+                            ),
+                            SizedBox(width: 80),
+                            _buildFeatureItem(
+                              iconPath: 'assets/images/troGiup.svg',
+                              title: 'Trợ giúp',
+                              onTap: () {
+                              },
+                            ),
+                            SizedBox(width: 80),
+                            _buildFeatureItem(
+                              iconPath: 'assets/images/Group 2263.svg',
+                              title: 'Thông báo\n cúp nước ',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => WaterOutageNews()),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  // Trang 4
+                  Column(
+                    children: [
+                      Padding(
+                        padding:
+                        const EdgeInsets.only(left: 40, top: 40),
+                        child: Row(
+                          children: [
+                            _buildFeatureItem(
+                              iconPath: 'assets/images/Group 2264.svg',
+                              title: 'Thông tin\nkhách hàng',
+                              onTap: () {
+                              },
+                            ),
+                            SizedBox(width: 70),
+                            _buildFeatureItem(
+                              iconPath: 'assets/images/Group 2212.svg',
+                              title: 'Hình thức\nthanh toán',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => PaymentMethod()),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                        const EdgeInsets.only(left: 35, top: 20, right: 30),
+                        child: Row(
+                          children: [
+                            _buildFeatureItem(
+                              iconPath: 'assets/images/Layer_1.svg',
+                              title: 'Báo\nchỉ số nước ',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Waterqualitynews()),
+                                );
+                              },
+                            ),
+                            SizedBox(width: 80),
+                            _buildFeatureItem(
+                              iconPath: 'assets/images/Group 2379.svg',
+                              title: 'Đăng ký\nsang tên',
+                              onTap: () {
                               },
                             ),
                           ],
@@ -268,7 +408,7 @@ class _serviceOnlineState extends State<serviceOnline> {
                     ),
                   ),
                 ),
-              if (_currentPage < 1)
+              if (_currentPage < 3)
                 GestureDetector(
                   onTap: () {
                     _nextPage();
